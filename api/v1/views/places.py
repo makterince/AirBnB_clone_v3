@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Configures RESTful api for places route """
+""" Configures RESTful api for places route. """
 from flask import jsonify, request, abort
 from api.v1.views import app_views
 from models import storage
@@ -91,7 +91,7 @@ def places_id(place_id):
 
 @app_views.route("/places_search", methods=["POST"], strict_slashes=False)
 def places_search():
-    """ configures route for places_search """
+    """ it configures route for places_search """
 
     try:
         json_dict = request.get_json()
