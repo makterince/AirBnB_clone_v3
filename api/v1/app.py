@@ -7,7 +7,7 @@ import os
 from flask_cors import CORS
 
 app = Flask(__name__)
-pp.register_blueprint(app_views)
+app.register_blueprint(app_views)
 cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
 app.register_blueprint(app_views, url_prefix='/api/v1')
