@@ -7,7 +7,8 @@ import os
 from flask_cors import CORS
 
 app = Flask(__name__)
-
+pp.register_blueprint(app_views)
+cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
 app.register_blueprint(app_views, url_prefix='/api/v1')
 
@@ -18,6 +19,13 @@ def teardown_appcontext(exception):
 
 
     storage.close()
+@app.errorhandler(404)
+def not_found(e):
+    """ configures error 404 replies """
+
+    
+    return jsonify({"error": "Not found"}), e.code
+
 
 if __name__ == "__main__":
     
